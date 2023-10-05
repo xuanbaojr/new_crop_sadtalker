@@ -21,12 +21,3 @@ services:
       - 8000:8000
     volumes:
       - ./api:/app
-
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            device_ids: ['0']
-            capabilities: [gpu]
-

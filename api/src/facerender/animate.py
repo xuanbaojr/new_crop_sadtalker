@@ -313,12 +313,12 @@ class AnimateFromCoeff():
                 path, new_audio_path, av_path_full, watermark=False)
 
             video_name_still_final = x["video_name"] + "_still_final.mp4"
-            full_video_path_final = os.path.join(
+            full_video_path = os.path.join(
                 video_save_dir, video_name_still_final)
             paste_vid(av_path, av_path_full, crop_info,
-                      new_audio_path, full_video_path_final, body_h, body_w)
-            paste_pic(full_video_path_final, pic_path_source, crop_info,
-                       new_audio_path, full_video_path, extended_crop=False)
+                      new_audio_path, full_video_path, body_h, body_w)
+            paste_pic(full_video_path, pic_path_source, crop_info,
+                      new_audio_path, full_video_path, extended_crop=False)
             return_path = full_video_path
 
         # paste back then enhancers

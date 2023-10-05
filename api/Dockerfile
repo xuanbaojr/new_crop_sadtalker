@@ -13,9 +13,7 @@ COPY ./requirements.txt /tmp/requirements.txt
 
 RUN python -m pip install -U --no-cache-dir --default-timeout=100 pip \
     && pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu \
-    && pip install --no-cache-dir --no-deps -r /tmp/requirements.txt --default-timeout=100 \
-    && pip install rembg \
-    && pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu113 
+    && pip install --no-cache-dir --no-deps -r /tmp/requirements.txt --default-timeout=100 
 
 COPY . /app
 

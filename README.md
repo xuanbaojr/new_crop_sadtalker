@@ -1,7 +1,7 @@
 # Video Synthesis from Portrait Image and Audio
 
 How to run Gradio App - without Docker
-- git clone https://github.com/ductt-1167/ai-video-synthesis.git
+- git clone https://github.com/xuanbaojr/laptoman.git
 - cd ai-video-synthesis
 - bash api/scripts/download_model.sh
 - pip install -r api/requirements.txt
@@ -63,3 +63,6 @@ You also need to install **ffmpeg** on your machine: `sudo apt install ffmpeg` (
     The gradion interface running on : http://0.0.0.0:7860
 ## Issues
 - If your issues related to **ffmpeg** or **ffprobe**, you can re-install **ffmpeg** in Conda environment: `conda install -c conda-forge ffmpeg`
+
+## Demo
+

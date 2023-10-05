@@ -76,13 +76,12 @@ def generate_image(prompt):
     img = Image.open(io.BytesIO(byte))
     return img
 
-def generate_video(audio, image, still_mode, crop):
+def generate_video(audio, image, still_mode):
     files = [('files', open(audio, 'rb')), ('files', open(image, 'rb'))]
     res = requests.post(
         "http://model_api:8000/video",
         files=files,
-        data={"still_mode": still_mode,
-              "crop" : crop}
+        data={"still_mode": still_mode}
     ) # still_mode is boolean
     if res.status_code == 200 or res.status_code == 307:
         byte = res.content
@@ -130,9 +129,7 @@ with gr.Blocks() as demo:
 
         with gr.Column():          
             gr.Markdown("<div align='center'><h2>Video Synthesis Result</h2></div>")
-            with gr.Row():
-                still_mode = gr.Checkbox(label="still mode", min_width=80)
-                crop = gr.Checkbox(label="crop", min_width=80)
+            still_mode = gr.Checkbox(label="still mode", min_width=80)
             video_button = gr.Button("Generate Video")
             result_video = gr.Video(label="Generated Video")
 
@@ -164,7 +161,7 @@ with gr.Blocks() as demo:
         outputs=[file_output, result_image, run_button, prompt, video_button]
     ).success(
         generate_video,
-        inputs=[file_output, result_image, still_mode, crop],
+        inputs=[file_output, result_image, still_mode],
         outputs=[result_video],
     ).then(
         enable_state_video,

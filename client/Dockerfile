@@ -11,4 +11,4 @@ RUN set -x \
 
 RUN python -m pip install -U --no-cache-dir --default-timeout=100 pip && pip install --no-cache-dir --upgrade -r /app/requirements.txt --default-timeout=100
 
-CMD ["gradio", "app_gradio.py"]
+CMD ["python", "app_gradio.py"]

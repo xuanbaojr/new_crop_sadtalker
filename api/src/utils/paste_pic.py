@@ -13,13 +13,11 @@ def paste_pic(video_path, pic_path, crop_info, new_audio_path, full_video_path, 
     full_img = cv2.imread(pic_path)
     if not os.path.isfile(pic_path):
         print("pic_path is not exist!")
-    if not os.path.isfile(video_path):
-        print("video_path is not exist!")
 
     w, h = full_img.shape[:2]
     full_img = cv2.resize(full_img, (256, 256))
-    cv2.imwrite('./pic_path.png', full_img)
-    pic_path = './pic_path.png'
+    cv2.imwrite('./test/pic_path.png', full_img)
+    pic_path = './test/pic_path.png'
 
     output_path = './test/test4.png'
 

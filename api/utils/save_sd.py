@@ -1,7 +1,7 @@
 import torch
 from diffusers import StableDiffusionPipeline
 
-model_id = "segmind/portrait-finetuned"
+model_id = "CompVis/stable-diffusion-v1-4"
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
 
 pipe = StableDiffusionPipeline.from_pretrained(model_id)

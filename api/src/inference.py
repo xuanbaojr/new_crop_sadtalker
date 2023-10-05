@@ -27,10 +27,8 @@ class SadTalker:
     ):
         if torch.cuda.is_available():
             device = "cuda:0"
-            print("cudaaaa")
         else:
             device = "cpu"
-            print("cpuuuuuuuuu")
 
         self.device = device
 
@@ -43,7 +41,7 @@ class SadTalker:
         self,
         source_image,
         driven_audio,
-        preprocess="full",
+        preprocess="crop",
         still_mode=False,
         use_enhancer=False,
         batch_size=1,
@@ -96,7 +94,7 @@ class SadTalker:
             pic_path_source = source_image
             pic_name = os.path.splitext(os.path.split(source_image)[-1])[0]
 
-            output_path = './' + pic_name + '_nobg.png'
+            output_path = 'test/' + pic_name + '_nobg.png'
 
             with open(source_image, 'rb') as i:
                 with open(output_path, 'wb') as o:
@@ -145,4 +143,4 @@ class SadTalker:
         return_path = self.animate_from_coeff.generate(data, save_dir,  pic_path, crop_info, enhancer='gfpgan' if use_enhancer else None,
                                                        preprocess=preprocess, img_size=size, pic_path_source=pic_path_source, still_mode=still_mode)
 
-        return return_path
+        return preprocess, return_path

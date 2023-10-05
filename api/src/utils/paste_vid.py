@@ -34,7 +34,8 @@ def paste_vid(head_video, body_video, crop_info, new_audio_path, full_video_path
 
     clx, cly, crx, cry = crop_info[1]
 
-    frame_h, frame_w = full_frame_head[0].shape[:2]
+    frame_w = 256
+    frame_h = 256
 
     clx, cly, crx, cry = crop_info[1]
     lx, ly, rx, ry = crop_info[2]
