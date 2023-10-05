@@ -1,0 +1,32 @@
+networks:
+  app:
+
+services:
+  client:
+    build: ./client
+    networks:
+      - app
+    ports:
+      - 7860:7860
+    depends_on:
+      - model_api
+    volumes:
+      - ./client:/app
+      
+  model_api:
+    build: ./api
+    networks:
+      - app
+    ports:
+      - 8000:8000
+    volumes:
+      - ./api:/app
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids: ['0']
+            capabilities: [gpu]
+
